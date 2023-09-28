@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]private int speed = 5;
+    [SerializeField]private int speed = 1;
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator animator;
@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovement(InputValue value)
     {
         movement = value.Get<Vector2>();
+
         if (movement.x != 0 || movement.y != 0)
         {
             animator.SetFloat("X", movement.x);
@@ -30,8 +31,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsWalking", false);
         }
-
-
     }
 
     private void FixedUpdate()
